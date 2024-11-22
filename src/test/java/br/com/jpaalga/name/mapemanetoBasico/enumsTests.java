@@ -1,16 +1,13 @@
-package br.com.jpaalga.name.mapeandoEnumTest;
+package br.com.jpaalga.name.mapemanetoBasico;
 
 import br.com.jpaalga.name.domain.entities.Cliente;
 import br.com.jpaalga.name.domain.entities.SexoCliente;
 import br.com.jpaalga.name.domain.repositories.ClienteRepository;
 import br.com.jpaalga.name.tests.Factory;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @SpringBootTest
 public class enumsTests {
