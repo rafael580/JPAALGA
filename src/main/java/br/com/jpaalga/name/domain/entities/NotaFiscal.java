@@ -1,4 +1,4 @@
-package br.com.jpaalga.name.entities;
+package br.com.jpaalga.name.domain.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -8,21 +8,22 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Date;
+
 @Getter
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-@Table(name = "pagamento_boleto")
-public class PagamentoBoleto {
+@Table(name = "nota_fiscal")
+public class NotaFiscal {
 
     @EqualsAndHashCode.Include
     @Id
     private Integer id;
     @Column(name = "pedido_id")
     private Integer pedidoId;
-    private StatusPagamento status;
-    @Column(name = "codigo_de_barras")
-    private String codigoDeBarras;
-
+    private String xml;
+    @Column(name = "data_emissao")
+    private Date dataEmissao;
 
 }

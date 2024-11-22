@@ -1,4 +1,4 @@
-package br.com.jpaalga.name.entities;
+package br.com.jpaalga.name.domain.entities;
 
 public enum SexoCliente {
 
