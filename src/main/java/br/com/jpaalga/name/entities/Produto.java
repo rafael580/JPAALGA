@@ -2,6 +2,7 @@ package br.com.jpaalga.name.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,8 +12,9 @@ import java.util.Objects;
 
 @Getter
 @Setter
-@Entity
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@Entity
+@Table(name = "produto")
 public class Produto {
 
     @EqualsAndHashCode.Include
