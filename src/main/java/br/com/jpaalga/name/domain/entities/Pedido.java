@@ -31,16 +31,18 @@ public class Pedido {
     private LocalDateTime dataPedido;
     @Column(name = "data_conclusao")
     private LocalDateTime dataConclusao;
-    @Column(name = "nota_fiscal")
-    private Integer notaFiscal;
+
     private BigDecimal total;
     @Enumerated(EnumType.STRING)
     private StatusPedido status;
     @Embedded
     private EnderecoEntregaPedido enderecoEntregaPedido;
-    @OneToMany(mappedBy = "pedido")
+    @OneToMany(mappedBy = "pedido") // nao aparece na tabela de pedido
     private List<ItemPedido> itemPedidoList = new ArrayList<>();
-
-
-
+    @OneToOne(mappedBy = "pedido")
+    private PagamentoCartao pagamentoCartao;
+    @OneToOne(mappedBy = "pedido")
+    private  PagamentoBoleto pagamentoBoleto;
+    @OneToOne(mappedBy = "pedido")
+    private  NotaFiscal notaFiscal;
 }

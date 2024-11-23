@@ -20,6 +20,7 @@ public class Categoria {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
+
     @ManyToOne
     @JoinColumn(name = "categoria_pai_id")
     private Categoria categoriaPaiId;
@@ -27,4 +28,6 @@ public class Categoria {
     @OneToMany(mappedBy = "categoriaPaiId")
     private List<Categoria> categoriaList = new ArrayList<>();
 
+    @ManyToMany(mappedBy = "categorias")
+    private List<Produto> produtos = new ArrayList<>();
 }
