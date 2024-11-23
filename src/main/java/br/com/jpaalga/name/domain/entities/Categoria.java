@@ -5,6 +5,9 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
@@ -17,7 +20,11 @@ public class Categoria {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
-    @Column(name = "categoria_pai_id")
-    private Integer categoriaPaiId;
+    @ManyToOne
+    @JoinColumn(name = "categoria_pai_id")
+    private Categoria categoriaPaiId;
+
+    @OneToMany(mappedBy = "categoriaPaiId")
+    private List<Categoria> categoriaList = new ArrayList<>();
 
 }

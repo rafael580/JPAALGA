@@ -6,6 +6,9 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
@@ -20,38 +23,8 @@ public class Cliente {
     private String nome;
     @Enumerated(EnumType.STRING)
     private SexoCliente sexoCliente;
+    @OneToMany(mappedBy = "cliente")
+    private List<Pedido> pedidos = new ArrayList<>();
 
 
-    public Cliente() {
-    }
-
-    public Cliente(Integer id, SexoCliente sexoCliente, String nome) {
-        this.id = id;
-        this.sexoCliente = sexoCliente;
-        this.nome = nome;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public SexoCliente getSexoCliente() {
-        return sexoCliente;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public void setSexoCliente(SexoCliente sexoCliente) {
-        this.sexoCliente = sexoCliente;
-    }
 }
