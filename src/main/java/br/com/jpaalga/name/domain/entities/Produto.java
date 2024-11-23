@@ -34,6 +34,7 @@ public class Produto {
     @OneToMany(mappedBy = "produto")
     private List<ItemPedido> itemPedidoList = new ArrayList<>();
 
-
+    @OneToOne(mappedBy = "produto")
+    private Estoque estoque;
 
 }

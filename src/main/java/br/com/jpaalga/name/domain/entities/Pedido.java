@@ -24,7 +24,7 @@ public class Pedido {
     private Integer id;
 
 
-    @ManyToOne
+    @ManyToOne (optional = false)
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
     @Column(name = "data_pedido")
@@ -37,12 +37,12 @@ public class Pedido {
     private StatusPedido status;
     @Embedded
     private EnderecoEntregaPedido enderecoEntregaPedido;
-    @OneToMany(mappedBy = "pedido") // nao aparece na tabela de pedido
+    @OneToMany(mappedBy = "pedido", fetch = FetchType.EAGER) // nao aparece na tabela de pedido
     private List<ItemPedido> itemPedidoList = new ArrayList<>();
     @OneToOne(mappedBy = "pedido")
     private PagamentoCartao pagamentoCartao;
     @OneToOne(mappedBy = "pedido")
-    private  PagamentoBoleto pagamentoBoleto;
+    private PagamentoBoleto pagamentoBoleto;
     @OneToOne(mappedBy = "pedido")
-    private  NotaFiscal notaFiscal;
+    private NotaFiscal notaFiscal;
 }
